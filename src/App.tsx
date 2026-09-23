@@ -10,9 +10,12 @@ import { VenueSection } from './components/VenueSection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { RegistrationModal } from './components/RegistrationModal';
+import { ParallaxStudio } from './components/ParallaxStudio';
+import { CinematicScrollExperience } from './components/CinematicScrollExperience';
 
 export default function App() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isParallaxOpen, setIsParallaxOpen] = useState(false);
   const [savedPass, setSavedPass] = useState<RegistrationData | null>(null);
 
   // Load any existing pass on mount
@@ -35,6 +38,10 @@ export default function App() {
     setIsRegisterOpen(true);
   };
 
+  const handleOpenParallax = () => {
+    setIsParallaxOpen(true);
+  };
+
   const handleRegistered = (pass: RegistrationData) => {
     setSavedPass(pass);
   };
@@ -52,6 +59,7 @@ export default function App() {
       <Navbar
         onOpenRegister={handleOpenRegister}
         onOpenPassView={handleOpenPassView}
+        onOpenParallaxStudio={handleOpenParallax}
         hasSavedPass={!!savedPass}
       />
 
@@ -60,7 +68,11 @@ export default function App() {
         <Hero
           onOpenRegister={handleOpenRegister}
           onOpenPromptLab={handleScrollToPromptLab}
+          onOpenParallaxStudio={handleOpenParallax}
         />
+
+        {/* Apple iPhone 11 Pro Style Cinematic Pinned Scroll Experience */}
+        <CinematicScrollExperience />
 
         <SpeakersSection />
 
@@ -84,6 +96,12 @@ export default function App() {
         onClose={() => setIsRegisterOpen(false)}
         onRegistered={handleRegistered}
         existingPass={savedPass}
+      />
+
+      {/* Interactive Parallax Engineering Studio Modal */}
+      <ParallaxStudio
+        isOpen={isParallaxOpen}
+        onClose={() => setIsParallaxOpen(false)}
       />
     </div>
   );

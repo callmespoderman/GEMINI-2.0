@@ -5,9 +5,10 @@ import { Calendar, Clock, MapPin, Users, AlertTriangle, ArrowRight, Sparkles, Pl
 interface HeroProps {
   onOpenRegister: () => void;
   onOpenPromptLab: () => void;
+  onOpenParallaxStudio?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenPromptLab }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenPromptLab, onOpenParallaxStudio }) => {
   // Target date: September 23, 2026, 11:00:00 IST (UTC+5:30)
   const targetDate = new Date('2026-09-23T11:00:00+05:30').getTime();
 
@@ -131,8 +132,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenPromptLab }) =
                 className="px-5 py-3.5 text-sm font-semibold text-slate-200 bg-slate-900/90 border border-slate-700/80 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-600 active:scale-[0.98] transition-all flex items-center gap-2 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-blue-400" />
-                <span>Launch Interactive Prompt Lab</span>
+                <span>Launch Prompt Lab</span>
               </button>
+
+              {onOpenParallaxStudio && (
+                <button
+                  onClick={onOpenParallaxStudio}
+                  className="px-4 py-3.5 text-sm font-medium text-indigo-300 bg-indigo-950/40 border border-indigo-800/60 rounded-xl hover:bg-indigo-900/50 hover:text-white transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                  <span>Parallax CSS Lab</span>
+                </button>
+              )}
             </div>
 
             {/* Quick stats / facts strip */}

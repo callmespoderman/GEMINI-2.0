@@ -54,6 +54,9 @@ END:VCALENDAR`;
 
           {/* Quick Nav Links */}
           <nav className="flex flex-wrap items-center gap-6 text-xs text-slate-400">
+            <a href="#cinematic-showcase" className="hover:text-white text-blue-400 transition-colors">
+              Architecture
+            </a>
             <a href="#speakers" className="hover:text-white transition-colors">
               Speakers
             </a>

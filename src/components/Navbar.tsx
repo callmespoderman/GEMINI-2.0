@@ -4,12 +4,14 @@ import { Sparkles, Ticket, CheckCircle2 } from 'lucide-react';
 interface NavbarProps {
   onOpenRegister: () => void;
   onOpenPassView: () => void;
+  onOpenParallaxStudio: () => void;
   hasSavedPass: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenRegister,
   onOpenPassView,
+  onOpenParallaxStudio,
   hasSavedPass,
 }) => {
   return (
@@ -30,6 +32,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Zone 2: 4–6 nav links, 1–2 word labels, single-line */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
           <a
+            href="#cinematic-showcase"
+            className="hover:text-white text-blue-400 font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block animate-pulse" />
+            <span>Architecture</span>
+          </a>
+          <a
             href="#speakers"
             className="hover:text-white transition-colors whitespace-nowrap"
           >
@@ -48,6 +57,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />
             <span>Prompt Lab</span>
           </a>
+          <button
+            onClick={onOpenParallaxStudio}
+            className="hover:text-white text-indigo-300 transition-colors whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
+          >
+            <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+            <span>Parallax CSS Lab</span>
+          </button>
           <a
             href="#checklist"
             className="hover:text-white transition-colors whitespace-nowrap"
